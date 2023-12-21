@@ -1,4 +1,6 @@
-.back{
-    background: url('./Assets/background.png');
-    background-size: cover;
+.back {
+  background: url("./Assets/background.jpg");
+  background-size: cover;
+  -webkit-background-clip: text;
+  background-position: center;
 }
