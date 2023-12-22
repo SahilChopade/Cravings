@@ -1,4 +1,3 @@
-const { sample_foods, sample_tags } = require("../data.js");
 const router = require("express").Router();
 const asyncHandler = require("express-async-handler");
 const FoodModel = require("../models/foodModel.js");

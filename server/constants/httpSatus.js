@@ -1,2 +1,3 @@
 const BAD_REQUEST = 400;
-module.exports = BAD_REQUEST;
+const UNAUTHORIZED = 401;
+module.exports = { BAD_REQUEST, UNAUTHORIZED };

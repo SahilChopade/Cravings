@@ -13,6 +13,7 @@ export default function RegisterPage() {
     lName: "",
     email: "",
     password: "",
+    address: "",
   };
   const [userData, setUserData] = useState(initialData);
   const handleChange = (e) => {
@@ -57,6 +58,13 @@ export default function RegisterPage() {
           type="password"
           name="password"
           placeholder="Password"
+          onChange={handleChange}
+        />
+        <input
+          className="placeholder-white min-w-[25rem] max-w-[35rem] focus:outline-none flex opacity-[0.8] hover:opacity-[1.5] rounded-[10px] p-[5px] px-[10px] shadow-[5px_5px_10px_#000000] text-white bg-transparent border-black border-[1px]"
+          type="text"
+          name="address"
+          placeholder="Address"
           onChange={handleChange}
         />
         <button

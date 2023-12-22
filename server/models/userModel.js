@@ -22,13 +22,13 @@ const userSchema = new mongoose.Schema(
       required: true,
       min: 8,
     },
-    isVerified: {
-      type: Boolean,
-      default: false,
-    },
     isAdmin: {
       type: Boolean,
       default: false,
+    },
+    address: {
+      type: String,
+      required: true,
     },
   },
   {

@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
 const BAD_REQUEST = require("../constants/httpSatus");
 router.post("/register", async (req, res) => {
-  const { fName, lName, email, password } = req.body;
+  const { fName, lName, email, password, address } = req.body;
   const admin = email === "sahilchopade233@gmail.com" ? true : false;
   const validEmail = emailValidator.validate(email);
   if (!validEmail) {
@@ -26,6 +26,7 @@ router.post("/register", async (req, res) => {
     email: email.toLowerCase(),
     isAdmin: admin,
     password: hashedPassword,
+    address: address,
   });
   res.send(generateTokenResponse(newUser));
 });
@@ -61,6 +62,7 @@ const generateTokenResponse = (user) => {
     email: user.email,
     name: user.firstName,
     isAdmin: user.isAdmin,
+    address: user.address,
     token,
   };
 };
