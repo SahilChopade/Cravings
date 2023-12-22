@@ -1,6 +1,5 @@
 .back {
   background: url("./Assets/background.jpg");
   background-size: cover;
-  -webkit-background-clip: text;
   background-position: center;
 }

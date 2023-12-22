@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LogoText from "./LogoText";
 import { useCart } from "../Hooks/useCart";
+import { useAuth } from "../Hooks/useAuth";
 export default function Header() {
   const [options, setOptions] = useState(false);
-  const user = {
-    name: "John",
-  };
-  const {cart} = useCart();
-  console.log(cart);
-  const logout = () => {};
+  const { user, logout } = useAuth();
+  console.log("This is my user",user);
+  const { cart } = useCart();
   return (
     <header>
       <div className="flex justify-between p-[15px] text-center text-white">
@@ -23,10 +21,10 @@ export default function Header() {
                     setOptions(!options);
                   }}
                 >
-                  {user.name}
+                  {user.name}  
                 </Link>
                 <div
-                  className={`absolute right-[55px] top-[35px] transition-all flex flex-col gap-4 backdrop-blur-[80px] drop-shadow-3xl p-[15px] z-100 ${
+                  className={`absolute right-[45px] top-[35px] transition-all flex flex-col gap-4 backdrop-blur-[80px] shadow-[10px_10px_5px_#000] border-[1px] border-black p-[15px] z-100 ${
                     !options && "hidden"
                   } rounded-md`}
                 >

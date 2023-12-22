@@ -2,13 +2,20 @@ import React, { useState } from "react";
 import { useCart } from "../Hooks/useCart";
 import { Link } from "react-router-dom";
 import Price from "../Components/Price";
+import deleteIcon from "../Assets/deleteIcon.svg";
+import cartCheckoutIcon from "../Assets/cartCheckoutIcon.svg";
+import NotFound from "../Components/NotFound";
 export default function CartPage() {
   const { cart, removeFromCart, changeQuantity } = useCart();
-  const [quantity, setQuantity] = useState(1);
+
   return (
     <>
-      <div>CART PAGE</div>
-      {cart && cart.items.length > 0 && (
+      <div className="text-center text-[40px] font-extrabold text-white drop-shadow-[4px_4px_2px_#000] mb-[3rem]">
+        FOOD CART
+      </div>
+      {cart.items.length === 0 ? (
+        <NotFound message={"Cart Page Empty!!"} />
+      ) : (
         <div className="flex flex-wrap gap-4 mt-[0.5rem] m-[1.5rem] justify-between text-white p-[20px]">
           <ul className="flex flex-col gap-4 grow px-[20px]">
             {cart.items.map((item) => (
@@ -19,7 +26,7 @@ export default function CartPage() {
                 <div className="flex justify-center items-center">
                   <img
                     className="w-[5rem] h-[5rem] rounded-[100%] object-cover border-[2px] border-teal-600"
-                    src={`/foods/${item.food.imageUrl}`}
+                    src={`${item.food.imageUrl}`}
                     alt={item.food.name}
                   />
                 </div>
@@ -48,12 +55,15 @@ export default function CartPage() {
                   onClick={() => removeFromCart(item.food.id)}
                   className="hover:shadow-[5px_5px_8px_#000000] scale-[1] hover:scale-[1.05] transition-all duration-50 ease-in flex items-center gap-2 w-fit px-[10px] py-[5px] text-[20px] uppercase rounded-[15px] border-[1px] border-black"
                 >
+                  <span>
+                    <img src={deleteIcon} alt="deleteIcon" />
+                  </span>
                   Remove
                 </button>
               </li>
             ))}
           </ul>
-          <div className="opacity-[0.8] hover:opacity-[1.5] h-[20rem] min-w-[20rem] max-w-[30rem] border-[1px] border-black px-[30px] py-[20px] rounded-[20px] shadow-[8px_8px_8px_#000000]">
+          <div className="opacity-[0.8] hover:opacity-[1.5] h-[20rem] min-w-[25rem] max-w-[40rem] border-[1px] border-black px-[30px] py-[20px] rounded-[20px] shadow-[8px_8px_8px_#000000]">
             <div className="text-center text-black font-extrabold text-[40px] mb-[20px]">
               CHECKOUT
             </div>
@@ -67,7 +77,10 @@ export default function CartPage() {
                 <Price price={cart.totalPrice} />
               </div>
               <Link className="flex justify-center" to="/checkout">
-                <button className="hover:shadow-[5px_5px_8px_#000000] scale-[1] hover:scale-[1.05] transition-all duration-50 ease-in flex items-center gap-2 w-fit px-[10px] py-[5px] text-[20px] rounded-[15px] border-[1px] border-black">
+                <button className="shadow-[5px_5px_8px_#000000] scale-[1] hover:scale-[1.05] transition-all duration-50 ease-in flex items-center gap-2 w-fit px-[10px] py-[5px] text-[20px] rounded-[15px] border-[1px] border-black">
+                  <span>
+                    <img src={cartCheckoutIcon} alt="CheckoutIcon" />
+                  </span>
                   Proceed To Checkout
                 </button>
               </Link>

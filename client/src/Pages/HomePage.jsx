@@ -1,14 +1,10 @@
 import React, { useEffect, useReducer } from "react";
-import {
-  getAll,
-  getAllByTag,
-  getAllTags,
-  search,
-} from "../Services/FoodService";
+import { getAll, getAllByTag, getAllTags, search } from "../routes/FoodRoutes";
 import Thumbnails from "../Components/Thumbnails";
 import { useParams } from "react-router-dom";
 import SearchBar from "../Components/SearchBar";
 import Tags from "../Components/Tags";
+import NotFound from "../Components/NotFound";
 const initialState = {
   foods: [],
   tags: [],
@@ -31,7 +27,6 @@ export default function HomePage() {
     getAllTags().then((tags) =>
       dispatch({ type: "TAGS_LOADED", payload: tags })
     );
-    console.log(tag); 
     const loadedFoods = tag
       ? getAllByTag(tag)
       : searchTerm
@@ -40,11 +35,12 @@ export default function HomePage() {
     loadedFoods.then((foods) =>
       dispatch({ type: "FOODS_LOADED", payload: foods })
     );
-  }, [searchTerm,tag]);
+  }, [searchTerm, tag]);
   return (
     <>
       <SearchBar />
       <Tags tags={tags} />
+      {foods.length === 0 && <NotFound />}
       <Thumbnails foods={foods} />
     </>
   );

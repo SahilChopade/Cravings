@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { sample_foods } from "../data";
 
 const CartContext = createContext(null);
 const CART_KEY = "cart";
@@ -8,6 +7,7 @@ const EMPTY_CART = {
   totalPrice: 0,
   totalCount: 0,
 };
+
 export default function CartProvider({ children }) {
   const initCart = getCartFromLocalStorage();
   const [cartItems, setCartItems] = useState(initCart.items);
@@ -20,6 +20,7 @@ export default function CartProvider({ children }) {
     );
     setCartItems(filteredCartItems);
   };
+  
   const changeQuantity = (cartItem, newQuantity) => {
     if (newQuantity === 0) {
       removeFromCart(cartItem.food.id);
@@ -53,11 +54,14 @@ export default function CartProvider({ children }) {
     setTotalPrice(totalPrice);
     setTotalCount(totalCount);
 
-    localStorage.setItem(CART_KEY,JSON.stringify({
-      items:cartItems,
-      totalPrice,
-      totalCount,
-    }))
+    localStorage.setItem(
+      CART_KEY,
+      JSON.stringify({
+        items: cartItems,
+        totalPrice,
+        totalCount,
+      })
+    );
   }, [cartItems]);
 
   function getCartFromLocalStorage() {
