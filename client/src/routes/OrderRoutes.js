@@ -9,3 +9,8 @@ export const CreateOrder = async (order) => {
     console.log(error.message);
   }
 };
+
+export const getNewOrderForCurrentUser = async()=>{
+  const {data} = await axios.get('/api/orders/newOrderForCurrentUser');
+  return data;
+}

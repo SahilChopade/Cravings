@@ -1,4 +1,4 @@
-import { useState, createContext, useContext, Children } from "react";
+import { useState, createContext, useContext } from "react";
 import * as userService from "../routes/UserRoutes";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,12 +9,12 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(userService.getUser());
   const login = async (values) => {
     try {
-      console.log("useot", values);
       const user = await userService.loginUser(values);
-      console.log("userndetails", user);
+      // console.log("userndetails", user);
       setUser(user);
       toast.success("Logged In Successfully!!");
     } catch (error) {
+      console.log(error.response.data);
       toast.error(error.response.data);
     }
   };

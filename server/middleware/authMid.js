@@ -1,8 +1,8 @@
 const { verify } = require("jsonwebtoken");
 const { UNAUTHORIZED } = require("../constants/httpSatus");
 
-module.exports = (req, res, next) => {
-  const token = req.headers.acces_token;
+ const authMid = (req, res, next) => {
+  const token = req.headers.access_token;
   if (!token) return res.status(UNAUTHORIZED).send();
   try {
     const decoded = verify(token, process.env.JWT_SECRET);
@@ -10,5 +10,8 @@ module.exports = (req, res, next) => {
   } catch (error) {
     res.status(UNAUTHORIZED).send();
   }
+  // console.log("this is mid response",res);
   return next();
 };
+
+module.exports = authMid;

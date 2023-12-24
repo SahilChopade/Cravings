@@ -2,11 +2,10 @@ const UserModel = require("../models/userModel");
 const router = require("express").Router();
 const emailValidator = require("email-validator");
 const bcrypt = require("bcrypt");
-const { createTransport } = require("nodemailer");
-const { connect } = require("mongoose");
 const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
-const BAD_REQUEST = require("../constants/httpSatus");
+const { BAD_REQUEST } = require("../constants/httpSatus");
+
 router.post("/register", async (req, res) => {
   const { fName, lName, email, password, address } = req.body;
   const admin = email === "sahilchopade233@gmail.com" ? true : false;
@@ -41,6 +40,7 @@ router.post(
       res.send(generateTokenResponse(user));
       return;
     }
+    // res.send("UserName or Password is Invalid!!");
     res.status(BAD_REQUEST).send("UserName or Password is Invalid!!");
   })
 );

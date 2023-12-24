@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useCart } from "../Hooks/useCart";
-import { useAuth } from "../Hooks/useAuth";
 import { Link, useNavigate } from "react-router-dom";
 import { CreateOrder } from "../routes/OrderRoutes";
 import OrderItems from "../Components/OrderItems";
@@ -13,8 +12,6 @@ export default function CheckoutPage() {
     address: "",
   });
   const { cart } = useCart();
-  const { user } = useAuth();
-  //   console.log("This is my user at heckout ", user);
   const navigate = useNavigate();
   const [order, setOrder] = useState({ ...cart });
   const handleSubmit = async () => {
@@ -23,7 +20,11 @@ export default function CheckoutPage() {
       return;
     }
     console.log("This ismy datta", userdata);
-    await CreateOrder({ ...order, name: userdata.name });
+    await CreateOrder({
+      ...order,
+      name: userdata.name,
+      address: userdata.address,
+    });
     navigate("/payment");
   };
   const handleChange = (e) => {
@@ -53,10 +54,20 @@ export default function CheckoutPage() {
             />
           </div>
           <div>
-            <div className="mb-[5px]">Order Items:</div>
-            <div>
-              <OrderItems order={order} />
-            </div>
+            <OrderItems order={order} />
+          </div>
+          <div className="flex justify-center mt-[3rem]">
+            <Link>
+              <button
+                onClick={handleSubmit}
+                className="text-white uppercase shadow-[5px_5px_10px_#fff] scale-[1] hover:scale-[1.05] transition-all duration-50 ease-in flex items-center gap-2 w-fit px-[10px] py-[5px] text-[20px] rounded-[15px] border-[1px] border-black"
+              >
+                <span>
+                  <img src={PaymentIcon} alt="CheckoutIcon" />
+                </span>
+                Proceed To Payment
+              </button>
+            </Link>
           </div>
         </div>
         <div>
@@ -71,19 +82,6 @@ export default function CheckoutPage() {
             }}
           />
         </div>
-      </div>
-      <div className="flex justify-center mt-[1rem]">
-        <Link>
-          <button
-            onClick={handleSubmit}
-            className="text-white uppercase shadow-[5px_5px_10px_#fff] scale-[1] hover:scale-[1.05] transition-all duration-50 ease-in flex items-center gap-2 w-fit px-[10px] py-[5px] text-[20px] rounded-[15px] border-[1px] border-black"
-          >
-            <span>
-              <img src={PaymentIcon} alt="CheckoutIcon" />
-            </span>
-            Proceed To Payment
-          </button>
-        </Link>
       </div>
     </>
   );
