@@ -1,3 +1,3 @@
 import axios from "axios";
-axios.defaults.baseURL =
-  process.env.NODE_ENV !== "https://cravingsbackend.onrender.com" ? "http://localhost:4000" : "/";
+axios.defaults.baseURL ="https://cravingsbackend.onrender.com";
+  // process.env.NODE_ENV !== "https://cravingsbackend.onrender.com" ? "http://localhost:4000" : "/";
