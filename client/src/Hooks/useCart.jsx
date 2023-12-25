@@ -20,7 +20,7 @@ export default function CartProvider({ children }) {
     );
     setCartItems(filteredCartItems);
   };
-  
+
   const changeQuantity = (cartItem, newQuantity) => {
     if (newQuantity === 0) {
       removeFromCart(cartItem.food.id);
@@ -46,6 +46,14 @@ export default function CartProvider({ children }) {
     } else {
       setCartItems([...cartItems, { food, quantity: 1, price: food.price }]);
     }
+  };
+
+  const clearCart = () => {
+    localStorage.removeItem(CART_KEY);
+    const { items, totalPrice, totalCount } = EMPTY_CART;
+    setCartItems(items);
+    setTotalCount(totalCount);
+    setTotalPrice(totalPrice);
   };
 
   useEffect(() => {
@@ -78,6 +86,7 @@ export default function CartProvider({ children }) {
         removeFromCart,
         changeQuantity,
         addtoCart,
+        clearCart,
       }}
     >
       {children}

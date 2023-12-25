@@ -2,17 +2,18 @@ import React, { useEffect, useState } from "react";
 import { getNewOrderForCurrentUser } from "../routes/OrderRoutes";
 import OrderItems from "../Components/OrderItems";
 import Map from "../Components/Map";
-import { checkout } from "../routes/PaymentRoutes";
+import { useNavigate } from "react-router-dom";
+import PaypalButtons from "../Components/PaypalButtons";
 
 export default function PaymentPage() {
   const [order, setOrder] = useState();
+  const navigate = useNavigate();
   useEffect(() => {
     getNewOrderForCurrentUser().then((data) => setOrder(data));
   }, []);
+
   if (!order) return;
-  const makePayment = async () => {
-    await checkout(order);
-  };
+
   return (
     <div>
       <div className="flex justify-around">
@@ -34,12 +35,7 @@ export default function PaymentPage() {
             <OrderItems order={order} />
           </div>
           <div className="flex justify-center items-center mt-5">
-            <button
-              className="uppercase shadow-[5px_5px_10px_#fff] scale-[1] hover:scale-[1.05] transition-all duration-50 ease-in flex items-center gap-2 w-fit px-[30px] py-[5px] text-[20px] rounded-[15px] border-[1px] border-black"
-              onClick={makePayment}
-            >
-              Check Out
-            </button>
+            <PaypalButtons order={order} />
           </div>
         </div>
         <div>

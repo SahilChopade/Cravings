@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useCart } from "../Hooks/useCart";
 import { Link } from "react-router-dom";
 import Price from "../Components/Price";

@@ -35,7 +35,7 @@ export default function Header() {
                   } rounded-md`}
                 >
                   <Link to="/profile">Profile</Link>
-                  <Link to="/order">Orders</Link>
+                  <Link to="/orders">Orders</Link>
                   <a className="cursor-pointer" onClick={logout}>
                     LogOut
                   </a>

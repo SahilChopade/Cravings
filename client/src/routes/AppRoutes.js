@@ -8,6 +8,9 @@ import RegisterPage from "../Pages/RegisterPage";
 import AuthRoute from "../Components/AuthRoute";
 import CheckoutPage from "../Pages/CheckoutPage";
 import PaymentPage from "../Pages/PaymentPage";
+import OrderTrackPage from "../Pages/OrderTrackPage";
+import ProfilePage from "../Pages/ProfilePage";
+import OrdersPage from "../Pages/OrdersPage";
 export default function AppRoutes() {
   return (
     <Routes>
@@ -18,6 +21,14 @@ export default function AppRoutes() {
       <Route path="/tag/:tag" element={<HomePage />} />
       <Route path="/food/:id" element={<FoodPage />} />
       <Route path="/cart" element={<CartPage />} />
+      <Route
+        path="/profile"
+        element={
+          <AuthRoute>
+            <ProfilePage />
+          </AuthRoute>
+        }
+      />
       <Route
         path="/checkout"
         element={
@@ -31,6 +42,22 @@ export default function AppRoutes() {
         element={
           <AuthRoute>
             <PaymentPage />
+          </AuthRoute>
+        }
+      />
+      <Route
+        path="/track/:id"
+        element={
+          <AuthRoute>
+            <OrderTrackPage />
+          </AuthRoute>
+        }
+      />
+      <Route
+        path="/orders/:filter?"
+        element={
+          <AuthRoute>
+            <OrdersPage />
           </AuthRoute>
         }
       />

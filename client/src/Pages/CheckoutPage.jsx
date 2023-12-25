@@ -19,7 +19,7 @@ export default function CheckoutPage() {
       toast.warning("Please Select Your Location on the MAP");
       return;
     }
-    console.log("This ismy datta", userdata);
+    // console.log("This ismy datta", userdata);
     await CreateOrder({
       ...order,
       name: userdata.name,

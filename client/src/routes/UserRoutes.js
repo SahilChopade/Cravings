@@ -18,3 +18,14 @@ export const getUser = () =>
   localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user"))
     : null;
+
+export const updateProfile = async (user) => {
+  const { data } = await axios.post("/api/user/updateProfile", user);
+  localStorage.setItem("user", JSON.stringify(data));
+  return data;
+};
+export const changePassword = async (user) => {
+  const { data } = await axios.post("/api/user/changePassword", user);
+  localStorage.setItem("user", JSON.stringify(data));
+  return data;
+};

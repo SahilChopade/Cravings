@@ -10,6 +10,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { LoadingProvider } from "./Hooks/useLoading";
 import './Interceptors/AuthInterceptor';
+// import dotenv from 'dot-env';
+// dotenv.config();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
