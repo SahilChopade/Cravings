@@ -5,7 +5,7 @@ import Price from "./Price";
 
 export default function Thumbnails({ foods }) {
   return (
-    <ul className="flex flex-wrap items-center justify-center mt-[20px] pb-[20px]">
+    <ul className="flex items-center justify-center flex-wrap mt-[20px] pb-[20px]">
       {foods.map((food) => (
         <li
           className="shadow-[5px_5px_10px_#000000] h-[20rem] w-[18rem] border-[1px] rounded-[1rem] m-[0.5rem] flex flex-col overflow-hidden bg-slate-200"

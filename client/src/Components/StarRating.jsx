@@ -9,11 +9,11 @@ export default function StarRating({ stars, size }) {
   function Star({ number }) {
     const halfNumber = number - 0.5;
     return stars >= number ? (
-      <img className="mix-blend-multiply" src="/star-full.svg" style={styles} alt={number} />
+      <img className="mix-blend-darken" src="/star-full.svg" style={styles} alt={number} />
     ) : stars >= halfNumber ? (
-      <img className="mix-blend-multiply" src="/star-half.svg" style={styles} alt={number} />
+      <img className="mix-blend-darken" src="/star-half.svg" style={styles} alt={number} />
     ) : (
-      <img className="mix-blend-multiply" src="/star-empty.svg" style={styles} alt={number} />
+      <img className="mix-blend-darken" src="/star-empty.svg" style={styles} alt={number} />
     );
   }
   return (

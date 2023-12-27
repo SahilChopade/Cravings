@@ -16,7 +16,7 @@ export default function ProfilePage() {
     setData({ ...data, [e.target.name]: e.target.value });
   };
   return (
-    <div className="flex justify-center gap-[5rem]">
+    <div className="flex md:flex-row flex-col justify-center gap-[5rem]">
       <div className="flex flex-col items-center">
         <div className="text-center text-[40px] font-extrabold text-white drop-shadow-[4px_4px_2px_#000] mb-[1rem]">
           UPDATE PROFILE

@@ -31,7 +31,7 @@ export default function OrdersPage() {
   }, [filter]);
 
   return (
-    <div className="text-white">
+    <div className="text-white flex flex-col justify-center items-center">
       <div className="text-center text-[40px] font-extrabold text-white drop-shadow-[4px_4px_2px_#000]">
         OrderPage
       </div>
@@ -43,7 +43,7 @@ export default function OrdersPage() {
           ALL
         </Link>
         {allStatus && (
-          <div className="flex gap-3 w-fit bg-transparent font-semibold text-white">
+          <div className="flex gap-3 w-fit bg-transparent font-semibold text-white]">
             {allStatus.map((state) => (
               <Link
                 className="border-[1px] border-black focus:bg-blue-400 shadow-[5px_5px_10px_#000000] px-[15px] py-[10px] rounded-[10px] opacity-[0.8] hover:opacity-[1]"
@@ -63,11 +63,11 @@ export default function OrdersPage() {
           linkText={filter ? "Show All" : "Go to Home Page"}
         />
       )}
-      <div className="flex flex-col gap-[15px] justify-center items-center">
+      <div className="flex flex-col gap-[15px] p-[20px] items-center h-[28rem] w-fit overflow-y-scroll snap-y snap-mandatory">
         {orders &&
           orders.map((order) => (
             <div
-              className="flex flex-col gap-2 divide-black p-[5px] grow border-[1px] border-black min-w-[50rem] max-w-[60rem] shadow-[5px_5px_10px_#000] rounded-[10px]"
+              className="snap-start flex flex-col gap-2 divide-black p-[5px] grow border-[1px] border-black min-w-[50rem] max-w-fit shadow-[5px_5px_10px_#000] rounded-[10px]"
               key={order.id}
             >
               <div className="flex justify-between px-[10px]">
