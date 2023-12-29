@@ -12,7 +12,7 @@ import * as L from "leaflet";
 
 export default function Map({ readonly, location, onChange }) {
   return (
-    <div className="relative rounded-[10px] overflow-hidden w-[35rem] h-[25rem]">
+    <div className="relative rounded-[10px] flex justify-center items-center overflow-hidden w-[35rem] h-[25rem]">
       <MapContainer
         className="map"
         center={[0, 0]}

@@ -1,8 +1,8 @@
 const OrderStatus = {
   NEW: "NEW",
-  PAYED: "PAYED",
+  PAID: "PAID",
   SHIPPED: "SHIPPED",
-  CANCELED: "CANCELED",
+  CANCELLED: "CANCELLED",
   REFUNDED: "REFUNDED",
 };
 module.exports = OrderStatus;

@@ -37,13 +37,13 @@ export default function OrdersPage() {
       </div>
       <div className="flex justify-center my-[1rem]">
         <Link
-          className="border-[1px] border-black focus:bg-blue-400 mr-[1rem] shadow-[5px_5px_10px_#000000] px-[15px] py-[10px] rounded-[10px] opacity-[0.8] hover:opacity-[1]"
+          className="border-[1px] border-black focus:bg-blue-400 mr-[1rem] shadow-[5px_5px_10px_#000000] h-fit px-[15px] py-[10px] rounded-[10px] opacity-[0.8] hover:opacity-[1]"
           to={`/orders/`}
         >
           ALL
         </Link>
         {allStatus && (
-          <div className="flex gap-3 w-fit bg-transparent font-semibold text-white]">
+          <div className="flex flex-wrap gap-3 w-fit bg-transparent font-semibold text-white]">
             {allStatus.map((state) => (
               <Link
                 className="border-[1px] border-black focus:bg-blue-400 shadow-[5px_5px_10px_#000000] px-[15px] py-[10px] rounded-[10px] opacity-[0.8] hover:opacity-[1]"
@@ -63,16 +63,16 @@ export default function OrdersPage() {
           linkText={filter ? "Show All" : "Go to Home Page"}
         />
       )}
-      <div className="flex flex-col gap-[15px] p-[20px] items-center h-[28rem] w-fit overflow-y-scroll snap-y snap-mandatory">
+      <div className="flex flex-col gap-[15px] p-[20px] mt-[2rem] lg:mt-0 items-center h-[28rem] w-fit overflow-y-scroll snap-y snap-mandatory">
         {orders &&
           orders.map((order) => (
             <div
-              className="snap-start flex flex-col gap-2 divide-black p-[5px] grow border-[1px] border-black min-w-[50rem] max-w-fit shadow-[5px_5px_10px_#000] rounded-[10px]"
+              className="snap-start flex flex-col gap-2 divide-black p-[5px] grow border-[1px] border-black w-[25rem] md:w-[40rem] lg:w-[50rem] shadow-[5px_5px_10px_#000] rounded-[10px]"
               key={order.id}
             >
-              <div className="flex justify-between px-[10px]">
-                <span>{order.id}</span>
-                <span>
+              <div className="flex justify-between px-[10px] text-[10px] md:text-[15px] lg:text-[20px]">
+                <span className="mr-[5px] md:mr-0">{order.id}</span>
+                <span className="mr-[5px] md:mr-0">
                   <DateTime date={order.createdAt} />
                 </span>
                 <span className="font-extrabold drop-shadow-[4px_4px_2px_#000]">
