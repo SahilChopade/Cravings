@@ -39,12 +39,12 @@ export default function CartPage() {
       {cart.items.length === 0 ? (
         <NotFound message={"Cart Page Empty!!"} />
       ) : (
-        <div className="flex lg:flex-row flex-col lg:items-start items-center gap-4 mt-[0.5rem] m-[1.5rem] justify-center lg:justify-between text-white p-[20px]">
+        <div className="flex lg:flex-row flex-col lg:items-start items-center gap-4 mt-[0.5rem] m-[1.5rem] justify-center lg:justify-between text-white lg:p-[20px]">
           <motion.ul
             variants={container}
             initial="hidden"
             animate="visible"
-            className="flex flex-col gap-4 grow px-[20px]"
+            className="flex flex-col gap-4 grow lg:px-[20px]"
           >
             {cart.items.map((item) => (
               <motion.li
@@ -93,7 +93,7 @@ export default function CartPage() {
             variants={container}
             initial="hidden"
             animate="visible"
-            className="opacity-[0.8] hover:opacity-[1.5] h-[20rem] min-w-[25rem] max-w-[40rem] border-[1px] border-black px-[30px] py-[20px] rounded-[20px] shadow-[8px_8px_8px_#000000]"
+            className="opacity-[0.8] hover:opacity-[1.5] h-[20rem] w-full md:w-[25rem] border-[1px] border-black px-[30px] py-[20px] rounded-[20px] shadow-[8px_8px_8px_#000000]"
           >
             <motion.div
               variants={itemVariants}
