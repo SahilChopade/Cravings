@@ -7,7 +7,7 @@ const userRouter = require("./routers/userRouter");
 const orderRouter = require("./routers/orderRouter");
 const app = express();
 // app.use(cors({ credentials: true, origin: ["http://localhost:3000"] }));
-app.use(cors({ credentials: true, origin: ["https://cravings-t3zg.onrender.com"] }));
+app.use(cors({ credentials: true, origin: [process.env.DEPLOYEMENT] }));
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
