@@ -12,7 +12,7 @@ function App() {
     setLoadingInterceptor({ showLoading, hideLoading });
   }, []);
   return (
-    <div className="scroll_bar min-h-[100vh] overflow-hidden bg-gradient-to-b from-[#379298] to-[#084d50] h-max font-['Merriweather']">
+    <div className="scroll_bar min-h-[100vh] back overflow-hidden bg-gradient-to-b from-[#379298] to-[#084d50] h-max font-['Merriweather']">
       <Loader />
       <Header />
       <AppRoutes />

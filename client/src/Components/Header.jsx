@@ -30,7 +30,7 @@ export default function Header() {
         <nav className="flex justify-center items-center font-bold uppercase md:mr-[2rem]">
           <ul className="flex items-center gap-2 text-[20px] relative border-[1px] border-black px-[10px] rounded-[10px] shadow-[inset_2px_2px_10px_#092b2d]">
             {user ? (
-              <li className="hover:bg-[#1d425e] transition-all duration-75 p-[5px] rounded-[10px]">
+              <li className="p-[5px] rounded-[10px]">
                 <Link
                   onClick={() => {
                     setOptions(!options);
@@ -44,19 +44,19 @@ export default function Header() {
                   } rounded-md`}
                 >
                   <Link
-                    className="hover:bg-[#1d425e] transition-all duration-75 p-[5px] rounded-[10px]"
+                    className="p-[5px] rounded-[10px]"
                     to="/profile"
                   >
                     Profile
                   </Link>
                   <Link
-                    className="hover:bg-[#1d425e] transition-all duration-75 p-[5px] rounded-[10px]"
+                    className="p-[5px] rounded-[10px]"
                     to="/orders"
                   >
                     Orders
                   </Link>
                   <a
-                    className="hover:bg-[#1d425e] transition-all duration-75 p-[5px] rounded-[10px] cursor-pointer"
+                    className="p-[5px] rounded-[10px] cursor-pointer"
                     onClick={logout}
                   >
                     LogOut
@@ -66,7 +66,7 @@ export default function Header() {
             ) : (
               <Link to="/login">Login</Link>
             )}
-            <li className="hover:bg-[#1d425e] relative flex justify-center items-center transition-all duration-75 p-[5px] rounded-[10px]">
+            <li className="relative flex justify-center items-center p-[5px] rounded-[10px]">
               <Link to="/cart">
                 <img className="w-[40px]" src={cartIcon} alt="cartIcon" />
                 <span className="absolute top-0 right-0 bg-[#750E21] rounded-[100%] text-[15px] w-5 aspect-square">

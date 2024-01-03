@@ -1,5 +1,5 @@
 .back {
-  background: url("./Assets/background.jpg");
+  background: url("./Assets/background1.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -19,11 +19,11 @@
   width: 0.5rem;
 }
 ::-webkit-scrollbar-track {
-  background: #479a9e;
+  background: transparent;
   box-shadow: inset 3px 3px 5px grey;
 }
 ::-webkit-scrollbar-thumb {
-  background: #092b2d;
+  background: #000;
   border-radius: 10px;
 }
 

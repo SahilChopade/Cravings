@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Price from "./Price";
 export default function OrderItems({ order }) {
   return (
-    <ul className="flex flex-col gap-1 divide-y-2 divide-black p-[5px] grow border-[1px] border-black w-[30rem] shadow-[5px_5px_10px_#000] rounded-[10px]">
+    <ul className="flex flex-col gap-1 divide-y-2 divide-black p-[5px] grow border-[1px] border-black w-[30rem] shadow-[5px_5px_10px_#000] rounded-[10px] backdrop-blur-[10px]">
       <div className="flex justify-between px-[5px]">
         <div>Order Items</div>
         <div className="flex gap-2">

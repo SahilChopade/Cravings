@@ -35,7 +35,7 @@ router.post(
     }
     // console.log("order",order);
     order.paymentId = paymentId;
-    order.status = OrderStatus.PAYED;
+    order.status = OrderStatus.PAID;
     await order.save();
     res.send(order._id);
   })
